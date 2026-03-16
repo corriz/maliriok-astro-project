@@ -27,16 +27,22 @@ import { site } from '../data/site';
           <RevealContact type="phone" />
         </div>
 
-        <p class="mt-4 text-base leading-7 text-black/65">Hlavní zaměření je na Přerovsko a podle domluvy i širší okolí v Olomouckém kraji.</p>
+        <p class="mt-4 text-base leading-7 text-black/65">
+          Hlavní zaměření je na Přerovsko a podle domluvy i širší okolí v Olomouckém kraji.
+        </p>
       </div>
 
       <div class="card-soft bg-gradient-to-br from-white to-brand-canvas">
-        <h2 class="text-2xl font-black">Adresa pro důvěru</h2>
-        <p class="mt-4 text-lg leading-8 text-black/80">
-          {site.streetAddress}<br />
-          {site.postalCode} {site.city}<br />
-          {site.district}, {site.region}
-        </p>
+        <h2 class="text-2xl font-black">Provozovatel</h2>
+
+        <div class="mt-4 space-y-1 text-lg leading-8 text-black/80">
+          <p>{site.legalName}</p>
+          <p>{site.streetAddress}</p>
+          <p>{site.postalCode} {site.city}</p>
+          <p>{site.district}, {site.region}</p>
+          <p>IČO: {site.ico}</p>
+        </div>
+
         <p class="mt-5 text-base leading-7 text-black/75">
           Horní Újezd uvádíme jako adresu zázemí firmy. Pro web a služby ale používáme hlavně širší lokalizaci
           Přerovsko a Olomoucký kraj.

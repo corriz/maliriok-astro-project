@@ -1,25 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/ui/PageIntro.astro';
 import Section from '../components/ui/Section.astro';
-import { seo } from '../data/seo';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title={seo.privacy.title} description={seo.privacy.description}>
-  <PageIntro title="Ochrana osobních údajů" text="Základní informace o zpracování osobních údajů při telefonickém kontaktu a návštěvě webu." />
-
+<BaseLayout
+  title="Ochrana osobních údajů | Malíři Ondroušek & Klas"
+  description="Základní informace o provozovateli webu a ochraně osobních údajů."
+>
   <Section>
     <div class="prose prose-neutral max-w-3xl">
+      <h1>Ochrana osobních údajů</h1>
+
       <p>
-        Tato stránka slouží k základnímu informování o zpracování osobních údajů při kontaktování po telefonu
-        a při běžné návštěvě webu.
+        Tento web provozuje {site.legalName}, {site.streetAddress}, {site.postalCode} {site.city},
+        IČO: {site.ico}.
       </p>
+
       <p>
-        Pokud nám sami sdělíte své údaje při telefonické domluvě, používáme je pouze za účelem vyřízení vaší
-        poptávky a další související komunikace.
+        Web neobsahuje kontaktní formulář a neslouží ke sběru osobních údajů přes formulářové odeslání.
+        Kontakt probíhá především telefonicky.
       </p>
+
       <p>
-        Údaje nepoužíváme k nevyžádanému marketingu.
+        V nezbytném rozsahu mohou být technicky zpracovávány běžné provozní údaje související s provozem webu,
+        hostingu a zabezpečením služby.
+      </p>
+
+      <p>
+        V případě dotazů ohledně provozu webu nebo ochrany osobních údajů je možné využít telefonický kontakt
+        uvedený na stránce Kontakt.
       </p>
     </div>
   </Section>

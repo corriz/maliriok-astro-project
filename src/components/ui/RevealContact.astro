@@ -57,6 +57,12 @@ const classes = compact
     const type = button.getAttribute("data-contact-type");
     if (type !== "phone") return;
 
+    if (button.tagName === "A") {
+      return;
+    }
+
+    event.preventDefault();
+
     const parts = button.getAttribute("data-phone-parts");
     if (!parts) return;
 
@@ -83,7 +89,6 @@ const classes = compact
       link.setAttribute("data-contact-type", "phone");
       link.innerHTML = button.innerHTML;
       button.replaceWith(link);
-      window.location.href = "tel:" + phone;
     }
   });
 </script>

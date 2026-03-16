@@ -2,6 +2,7 @@ export const site = {
   name: 'Malíři Ondroušek & Klas',
   legalName: 'Martin Ondroušek & Dušan Klas',
   domain: 'https://maliriok.cz',
+  author: "Roman Michalcik",
   locale: 'cs-CZ',
   title: 'Malířské a natěračské práce pro Přerovsko | Malíři Ondroušek & Klas',
   description:
@@ -12,6 +13,7 @@ export const site = {
   country: 'CZ',
   streetAddress: 'Horní Újezd 126',
   postalCode: '753 53',
+  ico: "75783088",
   city: 'Horní Újezd',
   district: 'okres Přerov',
   revealPhoneParts: ['+420', '776', '836', '271'],

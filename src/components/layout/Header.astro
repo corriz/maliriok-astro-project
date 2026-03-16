@@ -1,0 +1,40 @@
+---
+import { navigation } from '../../data/navigation';
+import RevealContact from '../ui/RevealContact.astro';
+---
+
+<header class="sticky top-0 z-50 border-b border-black/5 bg-white/94 backdrop-blur">
+  <div class="container-site flex items-center justify-between py-3">
+    <a href="/" class="inline-flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-brand-ink">
+      <span class="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-yellow text-sm text-white shadow-soft">M</span>
+      <span>Malíři Ondroušek & Klas</span>
+    </a>
+
+    <nav class="hidden items-center gap-5 md:flex">
+      {navigation.map((item) => (
+        <a href={item.href} class="text-[15px] font-semibold text-brand-ink transition hover:opacity-70">
+          {item.label}
+        </a>
+      ))}
+      <div class="flex items-center gap-2 rounded-full bg-brand-canvas px-2 py-1.5">
+        <span class="pl-2 text-sm font-semibold text-brand-ink">Volejte:</span>
+        <RevealContact type="phone" compact={true} />
+      </div>
+    </nav>
+
+    <details class="md:hidden">
+      <summary class="list-none rounded-full border border-black/10 px-3 py-2 text-sm font-semibold">Menu</summary>
+      <div class="absolute right-4 mt-3 min-w-64 rounded-3xl border border-black/5 bg-white p-3 shadow-soft">
+        <div class="flex flex-col gap-2">
+          {navigation.map((item) => (
+            <a href={item.href} class="rounded-2xl px-4 py-3 text-base hover:bg-brand-canvas">{item.label}</a>
+          ))}
+          <div class="rounded-2xl bg-brand-canvas px-4 py-3">
+            <div class="mb-2 text-sm font-semibold text-brand-ink">Volejte:</div>
+            <RevealContact type="phone" compact={true} />
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>

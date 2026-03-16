@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import { seo } from '../../data/seo';
+---
+
+<BaseLayout title={seo.facade.title} description={seo.facade.description}>
+  <PageIntro title="Fasádní práce" text="Provádíme nátěry fasád a související úpravy povrchů." />
+  <Section>
+    <div class="grid gap-8 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Co děláme</h2>
+        <ul class="mt-5 space-y-3 text-black/80">
+          <li>• nátěry fasád</li>
+          <li>• opravy povrchů</li>
+          <li>• příprava podkladu</li>
+          <li>• obnovy starších ploch</li>
+        </ul>
+        <p class="mt-6 text-black/70">Každá fasáda potřebuje správný postup. Vždy záleží na stavu povrchu a rozsahu práce.</p>
+      </div>
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Kontakt</h2>
+        <p class="mt-4 text-black/70">Potřebuje vaše fasáda nový vzhled? Kontaktujte nás.</p>
+        <div class="mt-6"><Button href="/kontakt">Zavolat nám</Button></div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import { seo } from '../../data/seo';
+---
+
+<BaseLayout title={seo.coating.title} description={seo.coating.description}>
+  <PageIntro title="Natěračské práce" text="Provádíme nátěry různých povrchů v interiéru i exteriéru." />
+  <Section>
+    <div class="grid gap-8 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Co děláme</h2>
+        <ul class="mt-5 space-y-3 text-black/80">
+          <li>• dveře a zárubně</li>
+          <li>• okna</li>
+          <li>• zábradlí</li>
+          <li>• kovové prvky</li>
+          <li>• další běžné povrchy</li>
+        </ul>
+        <p class="mt-6 text-black/70">Pomůžeme s obnovou starších nátěrů i s novým řešením podle potřeby.</p>
+      </div>
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Kontakt</h2>
+        <p class="mt-4 text-black/70">Potřebujete obnovit nátěr? Rádi se domluvíme.</p>
+        <div class="mt-6"><Button href="/kontakt">Zavolat nám</Button></div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import { navigation, footerServices } from '../../data/navigation';
+import RevealContact from '../ui/RevealContact.astro';
+import { site } from '../../data/site';
+---
+
+<footer class="mt-14 border-t border-black/5 bg-white">
+  <div class="container-site grid gap-8 py-10 md:grid-cols-[1.3fr_1fr_1fr]">
+    <div>
+      <div class="text-lg font-extrabold">Malíři Ondroušek & Klas</div>
+      <p class="mt-2 text-sm text-black/70">Martin Ondroušek &amp; Dušan Klas</p>
+      <p class="mt-1 text-sm text-black/70">{site.streetAddress}, {site.postalCode} {site.city}</p>
+      <p class="mt-1 text-sm text-black/70">{site.district}, {site.region}</p>
+      <div class="mt-4"><RevealContact type="phone" /></div>
+    </div>
+
+    <div>
+      <h2 class="mb-3 text-sm font-bold">Menu</h2>
+      <ul class="space-y-2 text-sm">
+        {navigation.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-3 text-sm font-bold">Služby</h2>
+      <ul class="space-y-2 text-sm">
+        {footerServices.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-black/5 px-4 py-4 text-center text-sm text-black/60">
+    © Malíři Ondroušek & Klas · <a href="/ochrana-osobnich-udaju">Ochrana osobních údajů</a>
+  </div>
+</footer>

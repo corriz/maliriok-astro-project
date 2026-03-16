@@ -1,0 +1,15 @@
+{
+  "name": "Malíři Ondroušek & Klas",
+  "short_name": "Malíři O&K",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF7",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

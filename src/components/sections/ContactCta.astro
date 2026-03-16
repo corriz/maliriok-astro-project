@@ -1,0 +1,21 @@
+---
+import Section from '../ui/Section.astro';
+import RevealContact from '../ui/RevealContact.astro';
+---
+
+<Section>
+  <div class="rounded-[2rem] bg-gradient-to-r from-brand-ink to-brand-blue px-6 py-9 text-white md:px-8 md:py-10">
+    <h2 class="max-w-3xl text-2xl font-black md:text-3xl">
+      Potřebujete vymalovat byt, natřít dveře nebo opravit stěny?
+    </h2>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-white/85">
+      Zavolejte a řekněte, co potřebujete. Malířské práce, natěračské práce, fasádní nátěry i drobné zednické
+      opravy řešíme hlavně pro Přerovsko a širší okolí v Olomouckém kraji.
+    </p>
+
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <span class="text-base font-semibold text-white">Volejte:</span>
+      <RevealContact type="phone" compact={true} />
+    </div>
+  </div>
+</Section>

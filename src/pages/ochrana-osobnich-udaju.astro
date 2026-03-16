@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import Section from '../components/ui/Section.astro';
+import { seo } from '../data/seo';
+---
+
+<BaseLayout title={seo.privacy.title} description={seo.privacy.description}>
+  <PageIntro title="Ochrana osobních údajů" text="Základní informace o zpracování osobních údajů při telefonickém kontaktu a návštěvě webu." />
+
+  <Section>
+    <div class="prose prose-neutral max-w-3xl">
+      <p>
+        Tato stránka slouží k základnímu informování o zpracování osobních údajů při kontaktování po telefonu
+        a při běžné návštěvě webu.
+      </p>
+      <p>
+        Pokud nám sami sdělíte své údaje při telefonické domluvě, používáme je pouze za účelem vyřízení vaší
+        poptávky a další související komunikace.
+      </p>
+      <p>
+        Údaje nepoužíváme k nevyžádanému marketingu.
+      </p>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import Section from '../components/ui/Section.astro';
+import RevealContact from '../components/ui/RevealContact.astro';
+import { seo } from '../data/seo';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={seo.contact.title} description={seo.contact.description}>
+  <PageIntro
+    eyebrow="Telefonický kontakt"
+    title="Telefon na malíře pro Přerovsko a širší okolí"
+    text="Nejrychlejší domluva je po telefonu. Zavolejte nám a řekněte, jestli potřebujete vymalovat byt, natřít povrchy, opravit stěny nebo řešit fasádní nátěr."
+  />
+
+  <Section>
+    <div class="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Kam volat</h2>
+        <p class="mt-4 max-w-2xl text-lg leading-8 text-black/80">
+          Voláte přímo Martinu Ondrouškovi a Dušanu Klasovi. Nevyplňujete formulář a nečekáte na odpověď e-mailem.
+          Pokud chcete řešit malířské práce, natěračské práce, drobné zednické opravy nebo fasádu, telefon je nejrychlejší cesta.
+        </p>
+
+        <div class="mt-6">
+          <RevealContact type="phone" />
+        </div>
+
+        <p class="mt-4 text-base leading-7 text-black/65">Hlavní zaměření je na Přerovsko a podle domluvy i širší okolí v Olomouckém kraji.</p>
+      </div>
+
+      <div class="card-soft bg-gradient-to-br from-white to-brand-canvas">
+        <h2 class="text-2xl font-black">Adresa pro důvěru</h2>
+        <p class="mt-4 text-lg leading-8 text-black/80">
+          {site.streetAddress}<br />
+          {site.postalCode} {site.city}<br />
+          {site.district}, {site.region}
+        </p>
+        <p class="mt-5 text-base leading-7 text-black/75">
+          Horní Újezd uvádíme jako adresu zázemí firmy. Pro web a služby ale používáme hlavně širší lokalizaci
+          Přerovsko a Olomoucký kraj.
+        </p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

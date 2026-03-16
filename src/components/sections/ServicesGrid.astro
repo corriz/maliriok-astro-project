@@ -1,0 +1,29 @@
+---
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+import { services } from '../../data/services';
+---
+
+<Section>
+  <div class="mb-7 max-w-3xl">
+    <div class="mb-3 inline-flex rounded-full bg-brand-mint/15 px-4 py-2 text-sm font-semibold text-brand-ink">
+      Co pro zákazníky nejčastěji zajišťujeme
+    </div>
+    <h2 class="text-2xl font-black md:text-3xl">Malování, nátěry i opravy podkladu na jednom místě</h2>
+    <p class="mt-4 text-lg leading-8 text-black/80">
+      Děláme malířské práce, natěračské práce, drobné zednické opravy a fasádní práce pro domácnosti,
+      školy, kanceláře i firemní prostory na Přerovsku a v širším okolí.
+    </p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    {services.map((service, index) => (
+      <Card>
+        <div class={`mb-4 h-2 w-16 rounded-full ${index === 0 ? 'bg-brand-blue' : index === 1 ? 'bg-brand-yellow' : index === 2 ? 'bg-brand-coral' : 'bg-brand-mint'}`}></div>
+        <h3 class="text-xl font-bold leading-snug">{service.title}</h3>
+        <p class="mt-3 text-base leading-7 text-black/75">{service.description}</p>
+        <a href={service.href} class="mt-5 inline-block text-base font-semibold text-brand-blue">Zjistit více</a>
+      </Card>
+    ))}
+  </div>
+</Section>

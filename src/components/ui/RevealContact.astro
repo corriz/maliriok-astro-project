@@ -1,0 +1,26 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+  type: 'phone';
+  compact?: boolean;
+}
+
+const { type, compact = false } = Astro.props;
+const label = compact ? 'telefon' : 'Zobrazit telefon';
+const value = '+420 *** *** ***';
+const phoneParts = site.revealPhoneParts.join('|');
+const classes = compact
+  ? 'rounded-full bg-brand-blue px-4 py-2.5 text-sm font-bold text-white hover:opacity-95'
+  : 'rounded-full border border-black/10 bg-white px-5 py-3 text-base font-bold text-brand-ink hover:bg-brand-canvas';
+---
+
+<button
+  type="button"
+  class={`reveal-contact inline-flex items-center transition ${classes}`}
+  data-contact-type={type}
+  data-phone-parts={phoneParts}
+>
+  <span class="reveal-label">{label}</span>
+  <span class="reveal-value sr-only">{value}</span>
+</button>

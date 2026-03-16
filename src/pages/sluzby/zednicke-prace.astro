@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import { seo } from '../../data/seo';
+---
+
+<BaseLayout title={seo.masonry.title} description={seo.masonry.description}>
+  <PageIntro title="Zednické práce" text="Před malbou bývá často potřeba opravit podklad. Postaráme se i o drobné zednické úpravy." />
+  <Section>
+    <div class="grid gap-8 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Co děláme</h2>
+        <ul class="mt-5 space-y-3 text-black/80">
+          <li>• opravy prasklin</li>
+          <li>• opravy omítek</li>
+          <li>• drobné vysprávky</li>
+          <li>• stěrkování</li>
+          <li>• příprava stěn před malbou</li>
+        </ul>
+        <p class="mt-6 text-black/70">Když je potřeba nejprve opravit, opravíme. Potom připravíme stěny na malbu.</p>
+      </div>
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Kontakt</h2>
+        <p class="mt-4 text-black/70">Nejprve opravit, potom vymalovat? Umíme oboje.</p>
+        <div class="mt-6"><Button href="/kontakt">Zavolat nám</Button></div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

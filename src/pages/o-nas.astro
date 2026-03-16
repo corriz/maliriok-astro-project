@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/ui/PageIntro.astro';
+import Section from '../components/ui/Section.astro';
+import RevealContact from '../components/ui/RevealContact.astro';
+import { seo } from '../data/seo';
+---
+
+<BaseLayout title={seo.about.title} description={seo.about.description}>
+  <PageIntro
+    eyebrow="Kdo jsme"
+    title="Martin Ondroušek & Dušan Klas"
+    text="Jsme řemeslná firma z Horního Újezdu. Malířské, natěračské a drobné zednické práce provádíme od roku 2006."
+  />
+
+  <Section>
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Na čem si zakládáme</h2>
+        <ul class="mt-5 space-y-2.5 text-sm text-black/80 md:text-base">
+          <li>• pečlivá práce</li>
+          <li>• slušná domluva</li>
+          <li>• čistota při práci</li>
+          <li>• spokojenost zákazníka</li>
+        </ul>
+      </div>
+
+      <div class="card-soft">
+        <h2 class="text-2xl font-black">Pro koho pracujeme</h2>
+        <ul class="mt-5 space-y-2.5 text-sm text-black/80 md:text-base">
+          <li>• domácnosti</li>
+          <li>• byty a domy</li>
+          <li>• školy a školky</li>
+          <li>• kanceláře a firmy</li>
+        </ul>
+        <div class="mt-6"><RevealContact type="phone" /></div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

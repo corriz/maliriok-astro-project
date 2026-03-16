@@ -1,0 +1,30 @@
+---
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+
+const items = [
+  ['Víte, komu voláte', 'Za firmou stojí Martin Ondroušek a Dušan Klas. Ne anonymní formulář, ale přímá domluva po telefonu.'],
+  ['Přerovsko a širší okolí', 'Hlavní zaměření je na Přerovsko, ale jezdíme i po širším okolí v Olomouckém kraji podle domluvy.'],
+  ['Čistota při práci', 'Zakrytí, pořádek a slušný přístup bereme jako samozřejmost.'],
+  ['Praxe od roku 2006', 'Dlouholeté zkušenosti s malováním, nátěry, fasádami i drobnými opravami stěn.']
+];
+---
+
+<Section>
+  <div class="mb-7 max-w-3xl">
+    <h2 class="text-2xl font-black md:text-3xl">Proč volat právě nám</h2>
+    <p class="mt-4 text-lg leading-8 text-black/80">
+      Když přijdete na web, hned víte, kdo za firmou stojí, co dělá a kam zavolat. Přesně tak chceme,
+      aby to fungovalo i v reálu.
+    </p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    {items.map(([title, text]) => (
+      <Card>
+        <h3 class="text-lg font-bold leading-snug">{title}</h3>
+        <p class="mt-3 text-base leading-7 text-black/75">{text}</p>
+      </Card>
+    ))}
+  </div>
+</Section>

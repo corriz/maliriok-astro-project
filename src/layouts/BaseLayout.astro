@@ -1,0 +1,45 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SeoHead from '../components/layout/SeoHead.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+import { getGa4Snippet } from '../lib/analytics';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical = new URL(Astro.url.pathname, site.domain).toString(),
+  noindex = false
+} = Astro.props;
+
+const ga4Snippet = getGa4Snippet();
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <SeoHead title={title} description={description} canonical={canonical} noindex={noindex} />
+    {ga4Snippet && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4Id}`}></script>
+        <script is:inline set:html={ga4Snippet}></script>
+      </>
+    )}
+  </head>
+  <body class="bg-[--color-bg] text-[--color-text] antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script type="module" src="/src/scripts/reveal-contact.ts"></script>
+  </body>
+</html>

@@ -4,12 +4,23 @@ import { site } from '../../data/site';
 interface Props {
   type: 'phone';
   compact?: boolean;
+  label?: string;
+  revealedLabel?: string;
 }
 
-const { type, compact = false } = Astro.props;
-const label = compact ? 'telefon' : 'Zobrazit telefon';
-const value = '+420 *** *** ***';
+const {
+  type,
+  compact = false,
+  label,
+  revealedLabel = 'Volejte',
+} = Astro.props;
+
+const defaultLabel = compact ? 'telefon' : 'Zobrazit telefon';
+const initialLabel = label ?? defaultLabel;
+const hiddenValue = '+420 *** *** ***';
+
 const phoneParts = site.revealPhoneParts.join('|');
+
 const classes = compact
   ? 'rounded-full bg-brand-blue px-4 py-2.5 text-sm font-bold text-white hover:opacity-95'
   : 'rounded-full border border-black/10 bg-white px-5 py-3 text-base font-bold text-brand-ink hover:bg-brand-canvas';
@@ -17,10 +28,62 @@ const classes = compact
 
 <button
   type="button"
-  class={`reveal-contact inline-flex items-center transition ${classes}`}
+  class={`reveal-contact inline-flex items-center gap-2 transition ${classes}`}
   data-contact-type={type}
   data-phone-parts={phoneParts}
+  data-label={initialLabel}
+  data-revealed-label={revealedLabel}
 >
-  <span class="reveal-label">{label}</span>
-  <span class="reveal-value sr-only">{value}</span>
+  <span class="reveal-label">{initialLabel}</span>
+  <span class="reveal-value sr-only">{hiddenValue}</span>
 </button>
+
+<script is:inline>
+  const formatPhone = (raw) => {
+    const cleaned = raw.replace(/\s+/g, "");
+    if (cleaned.startsWith("+420") && cleaned.length === 13) {
+      return "+420 " + cleaned.slice(4, 7) + " " + cleaned.slice(7, 10) + " " + cleaned.slice(10, 13);
+    }
+    return raw;
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest(".reveal-contact");
+    if (!button) return;
+
+    const type = button.getAttribute("data-contact-type");
+    if (type !== "phone") return;
+
+    const parts = button.getAttribute("data-phone-parts");
+    if (!parts) return;
+
+    const phone = parts.split("|").join("");
+    const prettyPhone = formatPhone(phone);
+
+    const labelEl = button.querySelector(".reveal-label");
+    const valueEl = button.querySelector(".reveal-value");
+
+    if (labelEl) {
+      const revealedLabel = button.getAttribute("data-revealed-label") || "Volejte";
+      labelEl.textContent = revealedLabel;
+    }
+
+    if (valueEl) {
+      valueEl.textContent = prettyPhone;
+      valueEl.classList.remove("sr-only");
+    }
+
+    if (button.tagName === "BUTTON") {
+      const link = document.createElement("a");
+      link.href = "tel:" + phone;
+      link.className = button.className;
+      link.setAttribute("data-contact-type", "phone");
+      link.innerHTML = button.innerHTML;
+      button.replaceWith(link);
+      window.location.href = "tel:" + phone;
+    }
+  });
+</script>
